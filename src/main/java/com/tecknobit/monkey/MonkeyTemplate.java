@@ -56,35 +56,10 @@ public class MonkeyTemplate {
 
     private final MonkeyTextTemplate monkeyTextTemplate;
 
-    private final String verificationCode;
-
-    public MonkeyTemplate(int verificationCode) {
-        this(String.valueOf(verificationCode));
-    }
-
-    public MonkeyTemplate(String verificationCode) {
-        this(null, null, null, verificationCode);
-    }
-
-    public MonkeyTemplate(MonkeyColorsScheme colorsScheme, MonkeyLogo monkeyLogo, int verificationCode) {
-        this(colorsScheme, monkeyLogo, String.valueOf(verificationCode));
-    }
-
-    public MonkeyTemplate(MonkeyColorsScheme colorsScheme, MonkeyLogo monkeyLogo, String verificationCode) {
-        this(colorsScheme, monkeyLogo, null, verificationCode);
-    }
-
-    public MonkeyTemplate(MonkeyColorsScheme colorsScheme, MonkeyLogo monkeyLogo, MonkeyTextTemplate monkeyTextTemplate,
-                          int verificationCode) {
-        this(colorsScheme, monkeyLogo, monkeyTextTemplate, String.valueOf(verificationCode));
-    }
-
-    public MonkeyTemplate(MonkeyColorsScheme colorsScheme, MonkeyLogo monkeyLogo, MonkeyTextTemplate monkeyTextTemplate,
-                          String verificationCode) {
+    public MonkeyTemplate(MonkeyColorsScheme colorsScheme, MonkeyLogo monkeyLogo, MonkeyTextTemplate monkeyTextTemplate) {
         this.colorsScheme = colorsScheme;
         this.monkeyLogo = monkeyLogo;
         this.monkeyTextTemplate = monkeyTextTemplate;
-        this.verificationCode = verificationCode;
     }
 
     public MonkeyColorsScheme getColorsScheme() {
@@ -97,10 +72,6 @@ public class MonkeyTemplate {
 
     public MonkeyTextTemplate getMonkeyTextTemplate() {
         return monkeyTextTemplate;
-    }
-
-    public String getVerificationCode() {
-        return verificationCode;
     }
 
     public static class MonkeyLogo {
