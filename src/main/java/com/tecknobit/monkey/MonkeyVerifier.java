@@ -1,3 +1,7 @@
+package com.tecknobit.monkey;
+
+import com.tecknobit.monkey.MonkeyTemplate.MonkeyColorsScheme;
+import com.tecknobit.monkey.MonkeyTemplate.MonkeyLogo;
 import org.simplejavamail.api.email.Email;
 import org.simplejavamail.api.email.EmailPopulatingBuilder;
 import org.simplejavamail.api.mailer.Mailer;
@@ -8,21 +12,10 @@ import org.simplejavamail.mailer.internal.MailerRegularBuilderImpl;
 import java.io.IOException;
 
 import static com.tecknobit.apimanager.apis.ResourcesUtils.getResourceContent;
+import static com.tecknobit.monkey.MonkeyTemplate.MonkeyTemplateTag.*;
 import static org.simplejavamail.api.mailer.config.TransportStrategy.SMTP;
 
 public class MonkeyVerifier {
-
-    public enum MonkeyTemplateTag {
-
-        PROJECT_TAG("project");
-
-        private final String tag;
-
-        MonkeyTemplateTag(String tag) {
-            this.tag = "<" + tag + ">";
-        }
-
-    }
 
     private static final Class<MonkeyVerifier> context = MonkeyVerifier.class;
 
@@ -95,7 +88,19 @@ public class MonkeyVerifier {
     }*/
 
     private String formatTemplate(String template, MonkeyTemplate monkeyTemplate) {
-        return template.replaceAll(MonkeyTemplateTag.PROJECT_TAG.tag, monkeyTemplate.getProject());
+        String verificationTag = VERIFICATION_CODE_TAG.getTag();
+        if(!template.contains(verificationTag))
+            throw new IllegalArgumentException("verification_code tag is missing!");
+        MonkeyColorsScheme colorsScheme = monkeyTemplate.getColorsScheme();
+        MonkeyLogo monkeyLogo = monkeyTemplate.getMonkeyLogo();
+        return template
+                .replaceAll(PRIMARY_COLOR_TAG.getTag(), colorsScheme.getPrimaryColor())
+                .replaceAll(SECONDARY_COLOR_TAG.getTag(), colorsScheme.getSecondaryColor())
+                .replaceAll(TERTIARY_COLOR_TAG.getTag(), colorsScheme.getTertiaryColor())
+                .replaceAll(TEXT_COLOR_TAG.getTag(), colorsScheme.getTextColor())
+                .replaceAll(LOGO_LINK_TAG.getTag(), monkeyLogo.getLogoLink())
+                .replaceAll(LOGO_URL_TAG.getTag(), monkeyLogo.getLogoUrl())
+                .replaceAll(verificationTag, monkeyTemplate.getVerificationCode());
     }
 
     private void sendTemplateVerificationEmail(String fromText, String emailSubject, String template,

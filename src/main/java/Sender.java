@@ -1,3 +1,6 @@
+import com.tecknobit.monkey.MonkeyTemplate;
+import com.tecknobit.monkey.MonkeyVerifier;
+import org.json.JSONObject;
 import org.simplejavamail.api.email.Email;
 import org.simplejavamail.api.mailer.Mailer;
 import org.simplejavamail.api.mailer.config.TransportStrategy;
@@ -12,6 +15,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 
+import static com.tecknobit.monkey.MonkeyTemplate.MonkeyTemplateTag.PRIMARY_COLOR_TAG;
+import static com.tecknobit.monkey.MonkeyTemplate.MonkeyTemplateTag.SECONDARY_COLOR_TAG;
+
 public class Sender {
 
     /*
@@ -21,14 +27,34 @@ public class Sender {
      * 3] https://www.courier.com/guides/java-send-email/
      */
 
+    /*
+     * .\james-cli.bat ListUsers
+     * .\james-cli.bat AddDomain monkey.com
+     * .\james-cli.bat AddUser admin@monkey.com monkey
+     */
+
     static AtomicReference<Process> process = new AtomicReference<>();
     static ExecutorService executor = Executors.newSingleThreadExecutor();
 
     public static void main(String[] args) throws Exception {
-        startServer(); Thread.sleep(30000);
-        sendEmail();
-        Thread.sleep(10000);
-        stopServer();
+        String[] recipients = {"kemepol999@evvgo.com"};
+        String fromText = "Prova da monkey";
+        String emailSubject = "Monkey Subject";
+        MonkeyVerifier monkeyVerifier = new MonkeyVerifier("locahost", "admin@monkey.com", "admin");
+        monkeyVerifier.sendPlainVerificationEmail(fromText, emailSubject, "Monkey body plain", recipients);
+        MonkeyTemplate.MonkeyColorsScheme colorsScheme = new MonkeyTemplate.MonkeyColorsScheme(
+                new JSONObject()
+                        .put(PRIMARY_COLOR_TAG.getValue(), "07020d")
+                        .put(SECONDARY_COLOR_TAG.getValue(), "f9f6f0")
+        );
+        /*MonkeyTemplate.MonkeyLogo monkeyLogo = new MonkeyTemplate.MonkeyLogo("https://github.com/N7ghtm4r3/Pandoro",
+                "https://raw.githubusercontent.com/N7ghtm4r3/Pandoro/main/images/profiles/defProfilePic.png");
+        MonkeyTemplate monkeyTemplate = new MonkeyTemplate(colorsScheme, monkeyLogo, new Random().nextInt());
+        monkeyVerifier.sendDefaultTemplateVerificationEmail(fromText, emailSubject, monkeyTemplate, recipients);*/
+        //startServer(); Thread.sleep(30000);
+        //sendEmail();
+        /*Thread.sleep(10000);
+        stopServer();*/
     }
 
     private static void sendEmail() {
