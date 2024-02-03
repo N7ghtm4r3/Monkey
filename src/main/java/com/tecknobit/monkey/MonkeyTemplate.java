@@ -21,6 +21,14 @@ public class MonkeyTemplate {
 
         LOGO_URL_TAG("logo_url"),
 
+        TITLE_TAG("title_text"),
+
+        DESCRIPTION_TAG("description"),
+
+        FOOTER_TEXT_TAG("footer_text"),
+
+        REASONS_TEXT_TAG("reasons"),
+
         VERIFICATION_CODE_TAG("verification_code");
 
         private final String tag;
@@ -46,15 +54,36 @@ public class MonkeyTemplate {
 
     private final MonkeyLogo monkeyLogo;
 
+    private final MonkeyTextTemplate monkeyTextTemplate;
+
     private final String verificationCode;
+
+    public MonkeyTemplate(int verificationCode) {
+        this(String.valueOf(verificationCode));
+    }
+
+    public MonkeyTemplate(String verificationCode) {
+        this(null, null, null, verificationCode);
+    }
 
     public MonkeyTemplate(MonkeyColorsScheme colorsScheme, MonkeyLogo monkeyLogo, int verificationCode) {
         this(colorsScheme, monkeyLogo, String.valueOf(verificationCode));
     }
 
     public MonkeyTemplate(MonkeyColorsScheme colorsScheme, MonkeyLogo monkeyLogo, String verificationCode) {
+        this(colorsScheme, monkeyLogo, null, verificationCode);
+    }
+
+    public MonkeyTemplate(MonkeyColorsScheme colorsScheme, MonkeyLogo monkeyLogo, MonkeyTextTemplate monkeyTextTemplate,
+                          int verificationCode) {
+        this(colorsScheme, monkeyLogo, monkeyTextTemplate, String.valueOf(verificationCode));
+    }
+
+    public MonkeyTemplate(MonkeyColorsScheme colorsScheme, MonkeyLogo monkeyLogo, MonkeyTextTemplate monkeyTextTemplate,
+                          String verificationCode) {
         this.colorsScheme = colorsScheme;
         this.monkeyLogo = monkeyLogo;
+        this.monkeyTextTemplate = monkeyTextTemplate;
         this.verificationCode = verificationCode;
     }
 
@@ -64,6 +93,10 @@ public class MonkeyTemplate {
 
     public MonkeyLogo getMonkeyLogo() {
         return monkeyLogo;
+    }
+
+    public MonkeyTextTemplate getMonkeyTextTemplate() {
+        return monkeyTextTemplate;
     }
 
     public String getVerificationCode() {
@@ -160,6 +193,41 @@ public class MonkeyTemplate {
 
         public String getTextColor() {
             return textColor;
+        }
+
+    }
+
+    public static class MonkeyTextTemplate {
+
+        private final String title;
+
+        private final String description;
+
+        private final String footerText;
+
+        private final String reasonsText;
+
+        public MonkeyTextTemplate(String title, String description, String footerText, String reasonsText) {
+            this.title = title.replaceAll("\\n", "<br>");
+            this.description = description.replaceAll("\\n", "<br>");
+            this.footerText = footerText.replaceAll("\\n", "<br>");
+            this.reasonsText = reasonsText.replaceAll("\\n", "<br>");
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public String getFooterText() {
+            return footerText;
+        }
+
+        public String getReasonsText() {
+            return reasonsText;
         }
 
     }
