@@ -8,12 +8,14 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
+    maven("https://jitpack.io")
 }
 
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("org.simplejavamail:simple-java-mail:8.6.2")
+    implementation("com.github.N7ghtm4r3:APIManager:2.2.2")
 }
 
 afterEvaluate {
