@@ -66,8 +66,8 @@ Add the JitPack repository to your build file
 ```xml
 <dependency>
     <groupId>com.github.N7ghtm4r3</groupId>
-  <artifactId>Monkey</artifactId>
-  <version>1.0.0</version>
+    <artifactId>Monkey</artifactId>
+    <version>1.0.0</version>
 </dependency>
 ```
 
