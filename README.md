@@ -80,7 +80,7 @@ Add the JitPack repository to your build file
 
 #### Linux based
 
-You need to download the linux <a href="https://github.com/N7ghtm4r3/Monkey/tree/main/james/linux">zip folder</a> and then extract it.
+You need to download the Linux <a href="https://github.com/N7ghtm4r3/Monkey/tree/main/james/linux">zip folder</a> and then extract it.
 
 To launch the **SMTP** service you need to run the shell script in:
 
@@ -107,7 +107,7 @@ james-server-spring-app-3.8.0
 
 #### Windows based
 
-You need to download the linux <a href="https://github.com/N7ghtm4r3/Monkey/tree/main/james/windows">zip folder</a> and then extract it.
+You need to download the Windows <a href="https://github.com/N7ghtm4r3/Monkey/tree/main/james/windows">zip folder</a> and then extract it.
 
 To launch the **SMTP** service you need to run the shell script in:
 
