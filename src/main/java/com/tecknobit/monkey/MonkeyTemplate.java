@@ -286,7 +286,7 @@ public class MonkeyTemplate {
          *      }
          * }
          * </pre>
-         *
+         * @throws IllegalArgumentException when a required color is missing in the scheme
          */
         public MonkeyColorsScheme(String colorsScheme) {
             JsonHelper hColorsScheme = new JsonHelper(colorsScheme);
@@ -333,6 +333,7 @@ public class MonkeyTemplate {
          * @param tertiaryColor: the tertiary color value
          * @param textsColor: the texts color value
          *
+         * @throws IllegalArgumentException when a required color is missing in the scheme
          */
         public MonkeyColorsScheme(String primaryColor, String secondaryColor, String tertiaryColor, String textsColor) {
             if(primaryColor == null)

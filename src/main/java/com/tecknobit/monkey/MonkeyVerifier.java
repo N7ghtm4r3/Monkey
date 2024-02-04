@@ -3,6 +3,7 @@ package com.tecknobit.monkey;
 import com.tecknobit.apimanager.apis.ResourcesUtils;
 import com.tecknobit.monkey.MonkeyTemplate.MonkeyColorsScheme;
 import com.tecknobit.monkey.MonkeyTemplate.MonkeyLogo;
+import com.tecknobit.monkey.MonkeyTemplate.MonkeyTemplateTag;
 import com.tecknobit.monkey.MonkeyTemplate.MonkeyTextTemplate;
 import org.simplejavamail.api.email.Email;
 import org.simplejavamail.api.email.EmailPopulatingBuilder;
@@ -99,17 +100,17 @@ public class MonkeyVerifier {
     public enum VerificationCodeType {
 
         /**
-         * {@code NUMBERS} the verification code must contain only digits e.g. 123456
+         * {@code NUMBERS} the verification code must contain only digits e.g. 212230
          */
         NUMBERS,
 
         /**
-         * {@code CHARACTERS} the verification code must contain only characters e.g. abcdef
+         * {@code CHARACTERS} the verification code must contain only characters e.g. glmmpm
          */
         CHARACTERS,
 
         /**
-         * {@code ALPHANUMERIC} the verification code can contain both digits and character e.g. a1b2c3
+         * {@code ALPHANUMERIC} the verification code can contain both digits and character e.g. g1l2m3
          */
         ALPHANUMERIC
 
@@ -189,9 +190,9 @@ public class MonkeyVerifier {
     /**
      * Constructor to init the {@link MonkeyVerifier} class
      *
-     * @param host:{@code host} the host where the SMTP service is running
-     * @param verificationCodeType:{@code verificationCodeType} value of the {@link VerificationCodeType}
-     * @param from:{@code from} the user that will be considered the "From" in the verification email e.g. server@monkey.org            @apiNote this must be one of the users added to the <b>James<b> service
+     * @param host: the host where the SMTP service is running
+     * @param verificationCodeType: value of the {@link VerificationCodeType}
+     * @param from: the user that will be considered the "From" in the verification email
      *
      */
     public MonkeyVerifier(String host, VerificationCodeType verificationCodeType, String from) {
@@ -201,11 +202,11 @@ public class MonkeyVerifier {
     /**
      * Constructor to init the {@link MonkeyVerifier} class
      *
-     * @param host:{@code host} the host where the SMTP service is running
+     * @param host: the host where the SMTP service is running
      * @param smtpPort: the port where the SMTP service is running
-     * @param verificationCodeType:{@code verificationCodeType} value of the {@link VerificationCodeType}
-     * @param from:{@code from} the user that will be considered the "From" in the verification email e.g. server@monkey.org            @apiNote this must be one of the users added to the <b>James<b> service
-     *
+     * @param verificationCodeType: value of the {@link VerificationCodeType}
+     * @param from: the user that will be considered the "From" in the verification email
+     *            
      */
     public MonkeyVerifier(String host, int smtpPort, VerificationCodeType verificationCodeType, String from) {
         this(host, smtpPort, verificationCodeType, from, null);
@@ -214,9 +215,9 @@ public class MonkeyVerifier {
     /**
      * Constructor to init the {@link MonkeyVerifier} class
      *
-     * @param host:{@code host} the host where the SMTP service is running
-     * @param verificationCodeType:{@code verificationCodeType} value of the {@link VerificationCodeType}
-     * @param from:{@code from} the user that will be considered the "From" in the verification email e.g. server@monkey.org            @apiNote this must be one of the users added to the <b>James<b> service
+     * @param host: the host where the SMTP service is running
+     * @param verificationCodeType: value of the {@link VerificationCodeType}
+     * @param from: the user that will be considered the "From" in the verification email
      * @param password: the password of the user, this must be the same used when the {@link #from} has been added
      *
      */
@@ -227,10 +228,10 @@ public class MonkeyVerifier {
     /**
      * Constructor to init the {@link MonkeyVerifier} class
      *
-     * @param host:{@code host} the host where the SMTP service is running
+     * @param host: the host where the SMTP service is running
      * @param smtpPort: the port where the SMTP service is running
-     * @param verificationCodeType:{@code verificationCodeType} value of the {@link VerificationCodeType}
-     * @param from:{@code from} the user that will be considered the "From" in the verification email e.g. server@monkey.org            @apiNote this must be one of the users added to the <b>James<b> service
+     * @param verificationCodeType: value of the {@link VerificationCodeType}
+     * @param from: the user that will be considered the "From" in the verification email
      * @param password: the password of the user, this must be the same used when the {@link #from} has been added
      *
      */
@@ -242,10 +243,10 @@ public class MonkeyVerifier {
     /**
      * Constructor to init the {@link MonkeyVerifier} class
      *
-     * @param host:{@code host} the host where the SMTP service is running
-     * @param verificationCodeType:{@code verificationCodeType} value of the {@link VerificationCodeType}
-     * @param keepEmailValid:{@code keepEmailValid} value of the {@link KeepEmailValid}
-     * @param from:{@code from} the user that will be considered the "From" in the verification email e.g. server@monkey.org            @apiNote this must be one of the users added to the <b>James<b> service
+     * @param host: the host where the SMTP service is running
+     * @param verificationCodeType: value of the {@link VerificationCodeType}
+     * @param keepEmailValid: value of the {@link KeepEmailValid}
+     * @param from: the user that will be considered the "From" in the verification email
      *
      */
     public MonkeyVerifier(String host, VerificationCodeType verificationCodeType, KeepEmailValid keepEmailValid,
@@ -256,12 +257,11 @@ public class MonkeyVerifier {
     /**
      * Constructor to init the {@link MonkeyVerifier} class
      *
-     * @param host:{@code host} the host where the SMTP service is running
+     * @param host: the host where the SMTP service is running
      * @param smtpPort: the port where the SMTP service is running
-     * @param verificationCodeType:{@code verificationCodeType} value of the {@link VerificationCodeType}
-     * @param keepEmailValid:{@code keepEmailValid} value of the {@link KeepEmailValid}
-     * @param from:{@code from} the user that will be considered the "From" in the verification email e.g. server@monkey.org            @apiNote this must be one of the users added to the <b>James<b> service
-     *
+     * @param verificationCodeType: value of the {@link VerificationCodeType}
+     * @param keepEmailValid: value of the {@link KeepEmailValid}
+     * @param from: the user that will be considered the "From" in the verification email
      */
     public MonkeyVerifier(String host, int smtpPort, VerificationCodeType verificationCodeType,
                           KeepEmailValid keepEmailValid, String from) {
@@ -271,10 +271,10 @@ public class MonkeyVerifier {
     /**
      * Constructor to init the {@link MonkeyVerifier} class
      *
-     * @param host:{@code host} the host where the SMTP service is running
-     * @param verificationCodeType:{@code verificationCodeType} value of the {@link VerificationCodeType}
-     * @param keepEmailValid:{@code keepEmailValid} value of the {@link KeepEmailValid}
-     * @param from:{@code from} the user that will be considered the "From" in the verification email e.g. server@monkey.org            @apiNote this must be one of the users added to the <b>James<b> service
+     * @param host: the host where the SMTP service is running
+     * @param verificationCodeType: value of the {@link VerificationCodeType}
+     * @param keepEmailValid: value of the {@link KeepEmailValid}
+     * @param from: the user that will be considered the "From" in the verification email 
      * @param password: the password of the user, this must be the same used when the {@link #from} has been added
      *
      */
@@ -286,11 +286,11 @@ public class MonkeyVerifier {
     /**
      * Constructor to init the {@link MonkeyVerifier} class
      *
-     * @param host:{@code host} the host where the SMTP service is running
+     * @param host: the host where the SMTP service is running
      * @param smtpPort: the port where the SMTP service is running
-     * @param verificationCodeType:{@code verificationCodeType} value of the {@link VerificationCodeType}
-     * @param keepEmailValid:{@code keepEmailValid} value of the {@link KeepEmailValid}
-     * @param from:{@code from} the user that will be considered the "From" in the verification email e.g. server@monkey.org            @apiNote this must be one of the users added to the <b>James<b> service
+     * @param verificationCodeType: value of the {@link VerificationCodeType}
+     * @param keepEmailValid: value of the {@link KeepEmailValid}
+     * @param from: the user that will be considered the "From" in the verification email
      * @param password: the password of the user, this must be the same used when the {@link #from} has been added
      *
      */
@@ -309,6 +309,17 @@ public class MonkeyVerifier {
         emailsSent = new Properties();
     }
 
+    /**
+     * Method to send a verification email with a plain text body
+     * 
+     * @param fromText: the text for the "from" section of the email
+     * @param emailSubject: the subject for the verification email
+     * @param emailBody: the plain body text of the email 
+     * @param recipients: the recipients to send the verification email
+     *                  
+     * @implNote the verification code is unique for each email send in batch 
+     * @apiNote e.g. of plain verification email -> Hi, your verification code is 212230
+     */
     public void sendPlainVerificationEmail(String fromText, String emailSubject, String emailBody, String ... recipients) {
         for(String recipient : recipients) {
             EmailPopulatingBuilder emailPopulatingBuilder = initEmailBuilder(fromText, emailSubject);
@@ -318,41 +329,97 @@ public class MonkeyVerifier {
         }
     }
 
+    /**
+     * Method to send a verification email with the default monkey template
+     *
+     * @param fromText: the text for the "from" section of the email
+     * @param emailSubject: the subject for the verification email
+     * @param monkeyTemplate: the template to use in the verification email
+     * @param recipients: the recipients to send the verification email
+     *
+     * @implNote the verification code is unique for each email send in batch
+     */
     public void sendDefaultTemplateVerificationEmail(String fromText, String emailSubject, MonkeyTemplate monkeyTemplate,
                                                      String ... recipients) {
         sendTemplateVerificationEmail(fromText, emailSubject, MONKEY_TEMPLATE, monkeyTemplate, recipients);
     }
 
-    // TO-DO: WARN USER THAT THE FILE MUST BE IN THE RESOURCES FOLDER
+    /**
+     * Method to send a verification email with the default monkey template
+     *
+     * @param templatePathname: the pathname of the file to use as template for the verification email
+     * @param fromText: the text for the "from" section of the email
+     * @param emailSubject: the subject for the verification email
+     * @param recipients: the recipients to send the verification email
+     *
+     * @implNote the verification code is unique for each email send in batch
+     * @implSpec you need to place your custom template file in the resources folder to works correctly
+     * @throws IOException when an error occurred during operations with the template file
+     */
     public void sendCustomTemplateVerificationEmail(String templatePathname, String fromText, String emailSubject,
                                                     String ... recipients) throws IOException {
         sendCustomTemplateVerificationEmail(ResourcesUtils.getResourceFileRuntimeCopy(templatePathname, context),
                 fromText, emailSubject, recipients);
     }
 
-    // TO-DO: WARN USER THAT THE FILE MUST BE IN THE RESOURCES FOLDER
+    /**
+     * Method to send a verification email with the default monkey template
+     *
+     * @param customTemplate: the file to use as template for the verification email
+     * @param fromText: the text for the "from" section of the email
+     * @param emailSubject: the subject for the verification email
+     * @param recipients: the recipients to send the verification email
+     *
+     * @implNote the verification code is unique for each email send in batch
+     * @implSpec you need to place your custom template file in the resources folder to works correctly
+     * @throws IOException when an error occurred during operations with the template file
+     */
     public void sendCustomTemplateVerificationEmail(File customTemplate, String fromText, String emailSubject,
                                                     String ... recipients) throws IOException {
         String customContentTemplate = getResourceContent(customTemplate.getName(), context);
         sendTemplateVerificationEmail(fromText, emailSubject, customContentTemplate, null, recipients);
     }
 
-    private void sendTemplateVerificationEmail(String fromText, String emailSubject, String template,
+    /**
+     * Method to send a verification email with the default monkey template
+     *
+     * @param fromText: the text for the "from" section of the email
+     * @param emailSubject: the subject for the verification email
+     * @param templateContent: the content of the template to use
+     * @param monkeyTemplate: the templateContent to use in the verification email
+     * @param recipients: the recipients to send the verification email
+     *
+     * @implNote the verification code is unique for each email send in batch
+     */
+    private void sendTemplateVerificationEmail(String fromText, String emailSubject, String templateContent,
                                                MonkeyTemplate monkeyTemplate, String ... recipients) {
         for (String recipient : recipients) {
             EmailPopulatingBuilder emailPopulatingBuilder = initEmailBuilder(fromText, emailSubject);
             emailPopulatingBuilder.to(recipient);
-            MonkeyData monkeyData = formatTemplate(template, monkeyTemplate);
+            MonkeyData monkeyData = formatTemplate(templateContent, monkeyTemplate);
             sendEmail(emailPopulatingBuilder.appendTextHTML(monkeyData.content).buildEmail(), monkeyData.verificationCode);
         }
     }
 
+    /**
+     * Method to create an {@link EmailPopulatingBuilder}
+     *
+     * @param fromText: the text for the "from" section of the email
+     * @param emailSubject: the subject for the verification email
+     * @return an email builder as {@link EmailPopulatingBuilder}
+     */
     private EmailPopulatingBuilder initEmailBuilder(String fromText, String emailSubject) {
         return EmailBuilder.startingBlank()
                 .from(fromText, from)
                 .withSubject(emailSubject);
     }
 
+    /**
+     * Method to send a verification email
+     *
+     * @param email: the email object to send as email
+     * @param verificationCode: the verification code attached to the verification email
+     */
     private void sendEmail(Email email, String verificationCode) {
         mailer.sendMail(email);
         for (Recipient recipient : email.getToRecipients()) {
@@ -361,45 +428,64 @@ public class MonkeyVerifier {
         }
     }
 
-    private MonkeyData formatTemplate(String template, MonkeyTemplate monkeyTemplate) {
-        MonkeyData monkeyData = formatVerificationCode(template);
-        template = monkeyData.content;
+    /**
+     * Method to format the content of a template replacing with the {@link MonkeyTemplate} details
+     * @param contentTemplate: the base content template
+     * @param monkeyTemplate: the monkey template to create the verification email template
+     * @return the template formatted as {@link MonkeyData}
+     */
+    private MonkeyData formatTemplate(String contentTemplate, MonkeyTemplate monkeyTemplate) {
+        MonkeyData monkeyData = formatVerificationCode(contentTemplate);
+        contentTemplate = monkeyData.content;
         if(monkeyTemplate != null) {
             MonkeyColorsScheme colorsScheme = monkeyTemplate.getColorsScheme();
             MonkeyTextTemplate monkeyTextTemplate = monkeyTemplate.getMonkeyTextTemplate();
             MonkeyLogo monkeyLogo = monkeyTemplate.getMonkeyLogo();
             if(colorsScheme != null) {
-                template = template.replaceAll(PRIMARY_COLOR_TAG.getTag(), colorsScheme.getPrimaryColor())
+                contentTemplate = contentTemplate.replaceAll(PRIMARY_COLOR_TAG.getTag(), colorsScheme.getPrimaryColor())
                         .replaceAll(SECONDARY_COLOR_TAG.getTag(), colorsScheme.getSecondaryColor())
                         .replaceAll(TERTIARY_COLOR_TAG.getTag(), colorsScheme.getTertiaryColor())
                         .replaceAll(TEXT_COLOR_TAG.getTag(), colorsScheme.getTextsColor());
             }
             if(monkeyLogo != null) {
-                template = template.replaceAll(LOGO_LINK_TAG.getTag(), monkeyLogo.getLogoLink())
+                contentTemplate = contentTemplate.replaceAll(LOGO_LINK_TAG.getTag(), monkeyLogo.getLogoLink())
                         .replaceAll(LOGO_URL_TAG.getTag(), monkeyLogo.getLogoUrl());
             }
             if(monkeyTextTemplate != null) {
-                template = template.replaceAll(TITLE_TAG.getTag(), monkeyTextTemplate.getTitle())
+                contentTemplate = contentTemplate.replaceAll(TITLE_TAG.getTag(), monkeyTextTemplate.getTitle())
                         .replaceAll(DESCRIPTION_TAG.getTag(), monkeyTextTemplate.getDescription())
                         .replaceAll(FOOTER_TEXT_TAG.getTag(), monkeyTextTemplate.getFooterText())
                         .replaceAll(REASONS_TEXT_TAG.getTag(), monkeyTextTemplate.getReasonsText());
             }
         }
-        monkeyData.setContent(template);
+        monkeyData.setContent(contentTemplate);
         return monkeyData;
     }
 
-    private MonkeyData formatVerificationCode(String content) {
+    /**
+     * Method to format the content of a template replacing the {@link MonkeyTemplateTag#VERIFICATION_CODE_TAG} with
+     * a verification code generated
+     * @param contentTemplate: the base content template
+     *
+     * @return the template formatted as {@link MonkeyData}
+     * @throws IllegalArgumentException when the {@link MonkeyTemplateTag#VERIFICATION_CODE_TAG} is missing
+     */
+    private MonkeyData formatVerificationCode(String contentTemplate) {
         String verificationTag = VERIFICATION_CODE_TAG.getTag();
-        if(!content.contains(verificationTag))
+        if(!contentTemplate.contains(verificationTag))
             throw new IllegalArgumentException("verification_code tag is missing!");
         String verificationCode = generateVerificationCode();
         return new MonkeyData(
-            content.replaceAll(verificationTag, verificationCode),
+                contentTemplate.replaceAll(verificationTag, verificationCode),
             verificationCode
         );
     }
 
+    /**
+     * Method to generate a verification code using the {@link #verificationCodeType} to create the correct code <br>
+     * No-any params required
+     * @return the verification code as {@link String}
+     */
     private String generateVerificationCode() {
         String verificationCode = "";
         switch (verificationCodeType) {
@@ -410,6 +496,12 @@ public class MonkeyVerifier {
         return verificationCode;
     }
 
+    /**
+     * Method to verify the code sent by the user with corresponding the verification code of the verification email sent
+     * @param userEmail: the email of the user
+     * @param userCode: the verification code sent by the user
+     * @param actions: the actions to execute after the verification
+     */
     public void verifyCodeSent(String userEmail, String userCode, MonkeyVerificationActions actions) {
         removeExpiredVerificationEmails();
         EmailSent emailSent = (EmailSent) emailsSent.get(userEmail);
@@ -423,6 +515,13 @@ public class MonkeyVerifier {
             actions.onFailure();
     }
 
+    /**
+     * Method to remove from the {@link #emailsSent} the emails which their timestamp is over the {@link #keepEmailValid}
+     * threshold chosen <br>
+     * No-any params required
+     *
+     * @apiNote this routine is executed if the {@link #keepEmailValid} is different from {@link KeepEmailValid#ALWAYS_KEEP_VALID}
+     */
     private void removeExpiredVerificationEmails() {
         if(keepEmailValid != ALWAYS_KEEP_VALID) {
             long currentTimestamp = System.currentTimeMillis();
