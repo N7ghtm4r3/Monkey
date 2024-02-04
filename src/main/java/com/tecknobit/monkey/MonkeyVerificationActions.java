@@ -1,6 +1,5 @@
 package com.tecknobit.monkey;
 
-
 /**
  * The {@code MonkeyVerificationActions} interface is useful to create a workflow after the verification of the code
  * sent with the email

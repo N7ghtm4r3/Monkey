@@ -34,6 +34,28 @@ import static org.simplejavamail.api.mailer.config.TransportStrategy.SMTP;
 public class MonkeyVerifier {
 
     /**
+     * {@code VerificationCodeType} list of available verification code type to sent with the emails
+     */
+    public enum VerificationCodeType {
+
+        /**
+         * {@code NUMBERS} the verification code must contain only digits e.g. 212230
+         */
+        NUMBERS,
+
+        /**
+         * {@code CHARACTERS} the verification code must contain only characters e.g. glmmpm
+         */
+        CHARACTERS,
+
+        /**
+         * {@code ALPHANUMERIC} the verification code can contain both digits and character e.g. g1l2m3
+         */
+        ALPHANUMERIC
+
+    }
+
+    /**
      * {@code KeepEmailValid} list of available times to keep the verification emails valid
      */
     public enum KeepEmailValid {
@@ -91,28 +113,6 @@ public class MonkeyVerifier {
         public long getTime() {
             return time;
         }
-
-    }
-
-    /**
-     * {@code VerificationCodeType} list of available verification code type to sent with the emails
-     */
-    public enum VerificationCodeType {
-
-        /**
-         * {@code NUMBERS} the verification code must contain only digits e.g. 212230
-         */
-        NUMBERS,
-
-        /**
-         * {@code CHARACTERS} the verification code must contain only characters e.g. glmmpm
-         */
-        CHARACTERS,
-
-        /**
-         * {@code ALPHANUMERIC} the verification code can contain both digits and character e.g. g1l2m3
-         */
-        ALPHANUMERIC
 
     }
 

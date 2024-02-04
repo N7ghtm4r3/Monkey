@@ -175,57 +175,6 @@ public class MonkeyTemplate {
     }
 
     /**
-     * The {@code MonkeyLogo} class is useful to insert the details of the logo to insert in the email
-     *
-     * @author N7ghtm4r3 - Tecknobit
-     */
-    public static class MonkeyLogo {
-
-        /**
-         * {@code logoLink} link to open when the logo is clicked
-         */
-        private final String logoLink;
-
-        /**
-         * {@code logoUrl} url of the logo to insert
-         */
-        private final String logoUrl;
-
-        /**
-         * Constructor to init the {@link MonkeyLogo} class
-         *
-         * @param logoLink: link to open when the logo is clicked
-         * @param logoUrl: url of the logo to insert
-         *
-         */
-        public MonkeyLogo(String logoLink, String logoUrl) {
-            this.logoLink = logoLink;
-            this.logoUrl = logoUrl;
-        }
-
-        /**
-         * Method to get {@link #logoLink} instance <br>
-         * No-any params required
-         *
-         * @return {@link #logoLink} instance as {@link String}
-         */
-        public String getLogoLink() {
-            return logoLink;
-        }
-
-        /**
-         * Method to get {@link #logoUrl} instance <br>
-         * No-any params required
-         *
-         * @return {@link #logoUrl} instance as {@link String}
-         */
-        public String getLogoUrl() {
-            return logoUrl;
-        }
-
-    }
-
-    /**
      * The {@code MonkeyColorsScheme} class is useful to create the colors scheme for the email
      *
      * @author N7ghtm4r3 - Tecknobit
@@ -398,6 +347,57 @@ public class MonkeyTemplate {
          */
         public String getTextsColor() {
             return textsColor;
+        }
+
+    }
+
+    /**
+     * The {@code MonkeyLogo} class is useful to insert the details of the logo to insert in the email
+     *
+     * @author N7ghtm4r3 - Tecknobit
+     */
+    public static class MonkeyLogo {
+
+        /**
+         * {@code logoLink} link to open when the logo is clicked
+         */
+        private final String logoLink;
+
+        /**
+         * {@code logoUrl} url of the logo to insert
+         */
+        private final String logoUrl;
+
+        /**
+         * Constructor to init the {@link MonkeyLogo} class
+         *
+         * @param logoLink: link to open when the logo is clicked
+         * @param logoUrl: url of the logo to insert
+         *
+         */
+        public MonkeyLogo(String logoLink, String logoUrl) {
+            this.logoLink = logoLink;
+            this.logoUrl = logoUrl;
+        }
+
+        /**
+         * Method to get {@link #logoLink} instance <br>
+         * No-any params required
+         *
+         * @return {@link #logoLink} instance as {@link String}
+         */
+        public String getLogoLink() {
+            return logoLink;
+        }
+
+        /**
+         * Method to get {@link #logoUrl} instance <br>
+         * No-any params required
+         *
+         * @return {@link #logoUrl} instance as {@link String}
+         */
+        public String getLogoUrl() {
+            return logoUrl;
         }
 
     }
