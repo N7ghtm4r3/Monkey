@@ -17,6 +17,7 @@ dependencies {
     implementation("org.simplejavamail:simple-java-mail:8.6.2")
     implementation("com.github.N7ghtm4r3:APIManager:2.2.2")
     implementation("org.json:json:20230227")
+    implementation("org.apache.commons:commons-lang3:3.12.0")
 }
 
 afterEvaluate {
