@@ -132,6 +132,29 @@ james-server-spring-app-3.8.0
 .\james-cli.bat AddUser user@your_domain.any_first_level_domain <user_password> # e.g user@monkey.tecknobit root
 ```
 
+> [!NOTE]  
+> If you will run the **James Apache service** on a machine with the **SMTP** service already
+> integrated you will need to change the default ports value in the server configuration file to run
+> correctly the **James** server, in the specific the **bind** property
+> ``` bash
+> james-server-spring-app-3.8.0
+>    |-- conf
+>        |-- smtpserver.xml # default value: 0.0.0.0:25
+>        |-- imapserver.xml # default value: 0.0.0.0:143
+>        |-- pop3server.xml # default value: 0.0.0.0:110
+> ```
+
+> [!TIP]  
+> To use the **James Apache SMTP** with external providers such **Gmail**, **Hotmail**, etc...
+> you need to change the default port value in:
+> ``` bash
+> james-server-spring-app-3.8.0
+>    |-- conf
+>        |-- smtpserver.xml # required port value: 0.0.0.0:465 or custom port value 0.0.0.0:any_other_port_value if is already in use the 465 value
+> ```
+> Then to use correctly the [MonkeyVerifier](https://github.com/N7ghtm4r3/Monkey/blob/main/src/main/java/com/tecknobit/monkey/MonkeyVerifier.java) you need to use the same value inserted for the
+> [smtp_port](https://github.com/N7ghtm4r3/Monkey/blob/main/README.md#:~:text=%22host_where_running_smtp_service%22%2C-,smtp_port,-%2C%20//%20Default%20value) argument
+
 ### Monkey workflow
 
 #### Init the verifier
